@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("/static/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            height: 100%; 
+            margin: 0; 
+            padding: 0;
+        }
+        .container {
+            background: rgba(14, 14, 14, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            width: 500px;
+        }
+        h1 {
+            text-align: center;
+            color: #f48ef0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 60px;
+        }
+        label {
+            color: #93dfb2;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: larger;
+        }
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Sales Prediction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="mt-5">Login</h1>
+        <form method="post" action="/login">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger mt-3">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-DmeQJxRZ6SNlZ/zp/hwLRJCDwKV4EZ+pA0W3q9RMhMAgPxLmNKIU6SfXT0oMhG+1" crossorigin="anonymous"></script>
+</body>
+</html>
